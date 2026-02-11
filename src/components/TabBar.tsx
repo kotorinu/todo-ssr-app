@@ -6,7 +6,7 @@ const TABS = [
     { key: "month", label: "今月" },
     { key: "halfYear", label: "半年" },
     { key: "yearPlan", label: "年計画" },
-    { key: "memo", label: "Memo" },
+    { key: "memo", label: "メモ" },
 ];
 
 type TabBarProps = {

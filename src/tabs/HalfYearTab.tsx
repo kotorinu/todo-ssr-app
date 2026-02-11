@@ -1,41 +1,44 @@
 import React from "react";
 
 type HalfYearTabProps = {
-    goal: string;
-    setState: (fn: any) => void;
-    setInput?: (v: string) => void;
+  goal: string;
+  setState: (fn: any) => void;
 };
 
 const HalfYearTab: React.FC<HalfYearTabProps> = ({ goal, setState }) => {
-    // goalクリア
-    const clearGoal = () => {
-        setState((prev: any) => ({
-            ...prev,
-            halfYear: { goal: "" },
-        }));
-    };
-    const updateGoal = (v: string) => {
-        setState((prev: any) => ({
-            ...prev,
-            halfYear: { goal: v },
-        }));
-    };
-    return (
-        <div>
-            <h1 className="text-2xl font-bold mb-2 text-blue-600">半年の目標</h1>
-            <div className="flex gap-2 mb-2">
-                <textarea
-                    className="flex-1 border rounded-lg px-3 py-2 min-h-[80px]"
-                    value={goal}
-                    onChange={(e) => updateGoal(e.target.value)}
-                />
-                <button
-                    className="px-2 py-1 bg-gray-200 text-gray-700 rounded-lg h-fit"
-                    onClick={clearGoal}
-                >クリア</button>
-            </div>
-        </div>
-    );
+  const updateGoal = (v: string) => {
+    setState((prev: any) => ({
+      ...prev,
+      halfYear: { goal: v },
+    }));
+  };
+
+  const clearGoal = () => {
+    setState((prev: any) => ({
+      ...prev,
+      halfYear: { goal: "" },
+    }));
+  };
+
+  return (
+    <div>
+      <div className="flex items-center justify-between">
+        <h1 className="h-title">半年の目標</h1>
+
+        {/* 中央に出さず、右上に小さめ */}
+        <button className="btn-ghost px-3 py-2" onClick={clearGoal}>
+          クリア
+        </button>
+      </div>
+
+      <textarea
+        className="input-main min-h-[180px]"
+        placeholder="半年の目標を入力"
+        value={goal}
+        onChange={(e) => updateGoal(e.target.value)}
+      />
+    </div>
+  );
 };
 
 export default HalfYearTab;
