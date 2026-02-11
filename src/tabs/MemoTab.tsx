@@ -16,14 +16,13 @@ const MemoTab: React.FC<MemoTabProps> = ({ memo, setState }) => {
   );
 
   return (
-    <div className="p-4">
+    <div>
+      <h1 className="h-title">メモ</h1>
       <textarea
-        className="w-full h-[60vh] p-4 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none text-base bg-white"
+        className="input-main min-h-[320px]"
         placeholder="思いついたことを全部ここに書く"
         value={memo.text}
         onChange={handleChange}
-        rows={12}
-        style={{ minHeight: "300px" }}
       />
     </div>
   );
