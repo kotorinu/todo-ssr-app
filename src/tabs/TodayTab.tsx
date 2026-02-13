@@ -80,7 +80,7 @@ const TodayTab: React.FC<TodayTabProps> = ({
             if (e.key === "Enter") addTodo();
           }}
         />
-        <button className="btn btn-primary" onClick={addTodo}>
+        <button className="mt-3 btn btn-primary" onClick={addTodo}>
           追加
         </button>
       </div>
