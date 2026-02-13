@@ -26,9 +26,8 @@ const TodoList: React.FC<TodoListProps> = ({
         {todos.map((todo) => (
             <li
                 key={todo.id}
-                className={`flex items-center gap-2 border rounded-lg p-3 ${
-                    todo.completed ? "bg-gray-100" : ""
-                }`}
+                className={`w-full min-w-0 overflow-hidden flex items-center gap-2 border rounded-lg p-3 ${todo.completed ? "bg-gray-100" : ""
+                    }`}
             >
                 <input
                     type="checkbox"
@@ -38,7 +37,7 @@ const TodoList: React.FC<TodoListProps> = ({
                 />
                 {editingId === todo.id ? (
                     <input
-                        className="flex-1 border rounded-lg px-2 py-1 text-lg"
+                        className="flex-1 min-w-0 border rounded-lg px-2 py-1 text-lg"
                         value={editingText}
                         onChange={e => setEditing((prev: any) => ({
                             ...prev,
@@ -55,33 +54,33 @@ const TodoList: React.FC<TodoListProps> = ({
                     />
                 ) : (
                     <span
-                        className={`flex-1 text-lg ${
-                            todo.completed ? "line-through text-gray-400" : ""
-                        }`}
+                        className={`flex-1 text-lg ${todo.completed ? "line-through text-gray-400" : ""
+                            }`}
                     >
                         {todo.title}
                     </span>
                 )}
                 {editingId === todo.id ? (
-                    <>
+                    <div className="flex items-center gap-2 shrink-0">
+
                         <button
-                            className="px-2 py-1 bg-blue-500 text-white rounded-lg"
+                            className="px-2 py-1 bg-blue-100 text-white rounded-lg"
                             onClick={() => {
                                 onEdit(todo.id, editingText.trim());
                                 setEditing((prev: any) => ({ ...prev, [editingKey]: { id: null, text: "" } }));
                             }}
-                        >保存</button>
+                        >✅</button>
                         <button
                             className="px-2 py-1 bg-gray-300 text-gray-700 rounded-lg"
                             onClick={() => setEditing((prev: any) => ({ ...prev, [editingKey]: { id: null, text: "" } }))}
-                        >キャンセル</button>
-                    </>
+                        >❌</button>
+                    </div>
                 ) : (
                     <>
                         <button
                             className="px-2 py-1 bg-blue-100 text-blue-700 rounded-lg"
                             onClick={() => setEditing((prev: any) => ({ ...prev, [editingKey]: { id: todo.id, text: todo.title } }))}
-                        >編集</button>
+                        >🖋</button>
                         <button
                             className="px-2 py-1 bg-red-100 text-red-600 rounded-lg"
                             onClick={() => {

@@ -32,7 +32,7 @@ const HalfYearTab: React.FC<HalfYearTabProps> = ({ goal, setState }) => {
       </div>
 
       <textarea
-        className="input-main min-h-[180px]"
+        className="mt-2 input-main min-h-[180px]"
         placeholder="半年の目標を入力"
         value={goal}
         onChange={(e) => updateGoal(e.target.value)}
